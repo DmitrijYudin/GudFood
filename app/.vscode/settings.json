@@ -1,0 +1,25 @@
+{
+    "al.defaultLaunchConfigurationName": "Deploy",
+    "CRS.FileNamePattern": "<ObjectTypeShort><ObjectId>.<ObjectNameShort>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectTypeShort><ObjectId>.<ObjectNameShort>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectTypeShort><ObjectId>.<ObjectNameShort>.al",
+    "CRS.AlSubFolderName": "None",
+    "CRS.OnSaveAlFileAction": "Rename",
+    "CRS.ObjectNamePrefix": "GudFood ",
+    "CRS.ObjectNameSuffix": "",
+    "CRS.RemoveSuffixFromFilename": false,
+    "CRS.RemovePrefixFromFilename": false,
+    "al.ruleSetPath": "./ruleset.json",
+    "al.enableCodeAnalysis": true,
+    "al.codeAnalyzers": [
+        "${CodeCop}",
+        "${PerTenantExtensionCop}", // not for ISV
+        // "${AppSourceCop}", // for ISV
+        "${UICop}" 
+    ],
+    // "cSpell.enableFiletypes": [
+    //     "al",
+    //     "alapp",
+    //     "gitignore"
+    // ],
+}
