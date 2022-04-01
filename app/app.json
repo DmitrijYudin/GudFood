@@ -1,0 +1,33 @@
+{
+  "id": "400275fb-a8d9-4e44-b2bb-ce96ed5b54b8",
+  "name": "GudFood",
+  "publisher": "Dmitrij Yudin",
+  "version": "2.0.0.0",
+  "brief": "",
+  "description": "GudFood",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id":  "10cb69d9-bc8a-4d27-970a-9e110e9db2a5",
+      "name":  "_Exclude_APIV2_",
+      "publisher":  "Microsoft",
+      "version":  "17.9.28504.0"
+    }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "17.9.0.0",
+  "idRanges": [
+    {
+      "from": 50200,
+      "to": 50249
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://github.com/DmitrijYudin",
+  "showMyCode": true,
+  "runtime": "6.6"
+}
