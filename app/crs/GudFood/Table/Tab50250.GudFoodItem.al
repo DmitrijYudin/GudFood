@@ -1,4 +1,4 @@
-table 50200 "GudFood Item"
+table 50250 "GudFood Item"
 {
     Caption = 'GudFood Item';
     DataClassification = ToBeClassified;
@@ -28,12 +28,14 @@ table 50200 "GudFood Item"
         field(5; "Qty. Ordered"; Decimal)
         {
             Caption = 'Qty. Ordered';
-            DataClassification = CustomerContent;
+            //DataClassification = CustomerContent;
+            FieldClass = FlowField;
         }
         field(6; "Qty. in Order"; Decimal)
         {
             Caption = 'Qty. in Order';
-            DataClassification = CustomerContent;
+            //DataClassification = CustomerContent;
+            FieldClass = FlowField;
         }
         field(7; "Shelf Life"; Date)
         {

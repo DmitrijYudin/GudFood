@@ -1,4 +1,4 @@
-enum 50200 "GudFood Type"
+enum 50250 "GudFood Type"
 {
     Extensible = true;
 

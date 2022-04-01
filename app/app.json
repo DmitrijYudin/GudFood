@@ -23,8 +23,8 @@
   "application": "17.9.0.0",
   "idRanges": [
     {
-      "from": 50200,
-      "to": 50249
+      "from": 50250,
+      "to": 50300
     }
   ],
   "contextSensitiveHelpUrl": "https://github.com/DmitrijYudin",
