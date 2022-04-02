@@ -7,7 +7,7 @@ table 50252 "GudFood Order Line"
     {
         field(1; "GudFood Order No."; Code[20])
         {
-            Caption = 'GudFood Order No.';
+            Caption = 'GudFood Order No.', Comment = 'ESP="Code."';
             DataClassification = CustomerContent;
             TableRelation = "GudFood Order Header"."No.";
             Editable = false;

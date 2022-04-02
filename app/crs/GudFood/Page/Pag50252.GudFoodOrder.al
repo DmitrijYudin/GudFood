@@ -17,7 +17,6 @@ page 50252 "GudFood Order"
                     ToolTip = 'Specifies the value of the No. field.';
                     ApplicationArea = All;
                     ShowMandatory = true;
-                    NotBlank = true;
                 }
                 field("Sell- to Customer No."; Rec."Sell- to Customer No.")
                 {
