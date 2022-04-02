@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RootNodeName>
+  <GudFoodOrderHeader>
+    <No>0016</No>
+    <SelltoCustomerNo>10000</SelltoCustomerNo>
+    <SelltoCustomerName>SAM6</SelltoCustomerName>
+    <DateCreated>2023-01-26</DateCreated>
+    <TotalQty>5</TotalQty>
+    <TotalAmount>280.00</TotalAmount>
+  </GudFoodOrderHeader>
+  <GudFoodOrderLine>
+    <GudFoodOrderNo>0016</GudFoodOrderNo>
+    <DateCreated />
+    <LineNo>10000</LineNo>
+    <ItemNo>0001</ItemNo>
+    <ItemType>2</ItemType>
+    <Description>Salad</Description>
+    <ShelfLife>2022-04-06</ShelfLife>
+    <SelltoCustomerNo>10000</SelltoCustomerNo>
+    <Amount>40.00</Amount>
+    <UnitPrice>20.00</UnitPrice>
+    <Quantity>2</Quantity>
+  </GudFoodOrderLine>
+  <GudFoodOrderLine>
+    <GudFoodOrderNo>0016</GudFoodOrderNo>
+    <DateCreated>2023-01-26</DateCreated>
+    <LineNo>20000</LineNo>
+    <ItemNo>0002</ItemNo>
+    <ItemType>10</ItemType>
+    <Description>Burger</Description>
+    <ShelfLife>2022-04-08</ShelfLife>
+    <SelltoCustomerNo>10000</SelltoCustomerNo>
+    <Amount>240.00</Amount>
+    <UnitPrice>80.00</UnitPrice>
+    <Quantity>3</Quantity>
+  </GudFoodOrderLine>
+</RootNodeName>

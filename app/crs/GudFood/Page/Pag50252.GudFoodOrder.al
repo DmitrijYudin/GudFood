@@ -100,6 +100,20 @@ page 50252 "GudFood Order"
                     GudFoodOrderReport.Run();
                 end;
             }
+
+            action("GudFood Export Order")
+            {
+                Caption = 'GudFood Export Order';
+                ApplicationArea = All;
+                RunObject = xmlport "GudFood XML Export";
+                Ellipsis = true;
+                Promoted = true;
+                PromotedCategory = Category7;
+                PromotedIsBig = true;
+                //PromotedOnly = true;
+                Image = Export;
+                ToolTip = 'Executes GudFood Export Order';
+            }
         }
     }
 }
