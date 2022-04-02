@@ -12,11 +12,13 @@ page 50251 "GudFood Item Card"
         {
             group(General)
             {
+                Caption = 'General';
                 field("Code"; Rec."Code")
                 {
                     ToolTip = 'Specifies the value of the Code field.';
                     ApplicationArea = All;
                     ShowMandatory = true;
+                    NotBlank = true;
                 }
                 field(Description; Rec.Description)
                 {
@@ -34,6 +36,16 @@ page 50251 "GudFood Item Card"
                     ToolTip = 'Specifies the value of the GudFood Type field.';
                     ApplicationArea = All;
                 }
+                field("Shelf Life"; Rec."Shelf Life")
+                {
+                    ToolTip = 'Specifies the value of the Shelf Life field.';
+                    ApplicationArea = All;
+                }
+            }
+            group(Quantity)
+            {
+                Caption = 'Quantity';
+
                 field("Qty. Ordered"; Rec."Qty. Ordered")
                 {
                     ToolTip = 'Specifies the value of the Qty. Ordered field.';
@@ -42,11 +54,6 @@ page 50251 "GudFood Item Card"
                 field("Qty. in Order"; Rec."Qty. in Order")
                 {
                     ToolTip = 'Specifies the value of the Qty. in Order field.';
-                    ApplicationArea = All;
-                }
-                field("Shelf Life"; Rec."Shelf Life")
-                {
-                    ToolTip = 'Specifies the value of the Shelf Life field.';
                     ApplicationArea = All;
                 }
             }

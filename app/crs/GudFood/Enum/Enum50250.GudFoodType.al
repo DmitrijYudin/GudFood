@@ -2,19 +2,23 @@ enum 50250 "GudFood Type"
 {
     Extensible = true;
 
-    value(0; Salad)
+    value(0; Blank)
+    {
+        Caption = ' ';
+    }
+    value(2; Salad)
     {
         Caption = 'Salad';
     }
-    value(1; Burger)
+    value(10; Burger)
     {
         Caption = 'Burger';
     }
-    value(2; Cupcake)
+    value(20; Cupcake)
     {
         Caption = 'Cupcake';
     }
-    value(3; Drink)
+    value(30; Drink)
     {
         Caption = 'Drink';
     }
