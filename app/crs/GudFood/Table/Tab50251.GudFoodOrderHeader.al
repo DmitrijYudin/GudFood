@@ -9,6 +9,7 @@ table 50251 "GudFood Order Header"
         {
             Caption = 'No.';
             DataClassification = CustomerContent;
+            NotBlank = true;
 
             trigger OnValidate()
             begin
@@ -26,16 +27,10 @@ table 50251 "GudFood Order Header"
             trigger OnValidate()
             var
                 Customer: Record Customer;
-            // GudFoodOrderLine: Record "GudFood Order Line";
             begin
-
                 if "Sell- to Customer No." <> '' then begin
                     Customer.Get("Sell- to Customer No.");
                     Rec.Validate("Sell-to Customer Name", Customer.Name);
-
-                    // GudFoodOrderLine.SetRange("GudFood Order No.", Rec."No.");
-                    // if GudFoodOrderLine.FindSet() then
-                    //     GudFoodOrderLine.ModifyAll("Sell- to Customer No.", Rec."Sell- to Customer No.");
                 end;
             end;
         }
@@ -51,15 +46,19 @@ table 50251 "GudFood Order Header"
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(50; "Total Qty"; Decimal)
+        field(50; "Total Qty"; Integer)
         {
             Caption = 'Total Qty';
-            DataClassification = CustomerContent;
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = sum("GudFood Order Line".Quantity where("GudFood Order No." = field("No.")));
         }
         field(60; "Total Amount"; Decimal)
         {
             Caption = 'Total Amount';
-            DataClassification = CustomerContent;
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = sum("GudFood Order Line".Amount where("GudFood Order No." = field("No.")));
         }
     }
     keys
@@ -69,4 +68,12 @@ table 50251 "GudFood Order Header"
             Clustered = true;
         }
     }
+
+    trigger OnDelete()
+    var
+        GudFoodMgt: Codeunit "GudFood Mgt.";
+    begin
+        GudFoodMgt.DeleteGudFoodLine(Rec."No.");
+        GudFoodMgt.DeleteGudFoodLine('');
+    end;
 }

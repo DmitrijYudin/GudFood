@@ -123,6 +123,7 @@ table 50252 "GudFood Order Line"
         {
             Caption = 'Amount';
             DataClassification = CustomerContent;
+            Editable = false;
         }
     }
     keys

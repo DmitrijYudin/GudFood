@@ -19,21 +19,25 @@ page 50254 "GudFood Order Subpage"
                     ToolTip = 'Specifies the value of the Order No. field.';
                     ApplicationArea = All;
                     Editable = false;
+                    Visible = false;
                 }
                 field("Line No."; Rec."Line No.")
                 {
                     ToolTip = 'Specifies the value of the Line No. field.';
                     ApplicationArea = All;
+                    Visible = false;
                 }
                 field("Sell- to Customer No."; Rec."Sell- to Customer No.")
                 {
                     ToolTip = 'Specifies the value of the Sell- to Customer No. field.';
                     ApplicationArea = All;
+                    Visible = false;
                 }
                 field("Date Created"; Rec."Date Created")
                 {
                     ToolTip = 'Specifies the value of the Date Created field.';
                     ApplicationArea = All;
+                    Visible = false;
                 }
                 field("Item No."; Rec."Item No.")
                 {
