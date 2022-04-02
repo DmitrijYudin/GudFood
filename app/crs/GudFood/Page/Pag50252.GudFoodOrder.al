@@ -81,6 +81,25 @@ page 50252 "GudFood Order"
                     GudFoodOrderPost.PostGudFood(Rec);
                 end;
             }
+            action(Print)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'P&rint';
+                Ellipsis = true;
+                Image = Print;
+                Promoted = true;
+                PromotedCategory = Category11;
+                PromotedIsBig = true;
+                ShortCutKey = 'Ctrl+P';
+                ToolTip = 'Print';
+
+                trigger OnAction()
+                var
+                    GudFoodOrderReport: Report "GudFood Order Report";
+                begin
+                    GudFoodOrderReport.Run();
+                end;
+            }
         }
     }
 }

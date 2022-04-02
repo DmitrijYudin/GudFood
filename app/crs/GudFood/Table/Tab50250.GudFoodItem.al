@@ -29,6 +29,7 @@ table 50250 "GudFood Item"
         {
             Caption = 'Shelf Life';
             DataClassification = CustomerContent;
+            
         }
         field(60; "Qty. Ordered"; Decimal)
         {
