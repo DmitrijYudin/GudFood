@@ -5,7 +5,9 @@ codeunit 50250 "GudFood Mgt."
         GudFoodOrderLine: Record "GudFood Order Line";
     begin
         GudFoodOrderLine.SetRange("GudFood Order No.", DocumentNo);
-        GudFoodOrderLine.DeleteAll(true);
-        GudFoodOrderLine.Reset();
+        if not GudFoodOrderLine.IsEmpty then begin
+            GudFoodOrderLine.DeleteAll(true);
+            GudFoodOrderLine.Reset();
+        end;
     end;
 }

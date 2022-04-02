@@ -1,31 +1,28 @@
-page 50252 "GudFood Order"
+page 50257 "GudFood Order List Posted"
 {
-    Caption = 'GudFood Order';
-    PageType = Document;
-    SourceTable = "GudFood Order Header";
-    UsageCategory = None;
-    PromotedActionCategories = 'New,Process,Report,Approve,Release,Posting,Prepare,Order,Request Approval,History,Print/Send,Navigate';
-    Extensible = true;
-    Editable = true;
+    ApplicationArea = All;
+    Caption = 'GudFood Order List Posted';
+    PageType = List;
+    SourceTable = "GudFood Order Header Posted";
+    UsageCategory = Lists;
+    CardPageId = "GudFood Order Posted";
+    Editable = false;
 
     layout
     {
         area(content)
         {
-            group(General)
+            repeater(General)
             {
                 field("No."; Rec."No.")
                 {
                     ToolTip = 'Specifies the value of the No. field.';
                     ApplicationArea = All;
-                    ShowMandatory = true;
                 }
                 field("Sell- to Customer No."; Rec."Sell- to Customer No.")
                 {
                     ToolTip = 'Specifies the value of the Sell- to Customer No. field.';
                     ApplicationArea = All;
-                    ShowMandatory = true;
-                    NotBlank = true;
                 }
                 field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
                 {
@@ -35,6 +32,11 @@ page 50252 "GudFood Order"
                 field("Date Created"; Rec."Date Created")
                 {
                     ToolTip = 'Specifies the value of the Date Created field.';
+                    ApplicationArea = All;
+                }
+                field("Posted Date"; Rec."Posted Date")
+                {
+                    ToolTip = 'Specifies the value of the Posted Date field.';
                     ApplicationArea = All;
                 }
                 field("Total Qty"; Rec."Total Qty")
@@ -48,37 +50,35 @@ page 50252 "GudFood Order"
                     ApplicationArea = All;
                 }
             }
-            part(SalesLines; "GudFood Order Subpage")
-            {
-                ApplicationArea = All;
-                SubPageLink = "GudFood Order No." = field("No.");
-                UpdatePropagation = Both;
-                Editable = true;
-                Enabled = (Rec."Sell- to Customer No." <> '');
-            }
         }
     }
     actions
     {
         area(Processing)
         {
-            action(Post)
+            action("Delete All")
             {
                 ApplicationArea = Basic, Suite;
-                Caption = 'P&ost';
+                Caption = 'D&elete All documents and lines';
                 Ellipsis = true;
-                Image = PostOrder;
+                Image = Delete;
                 Promoted = true;
-                PromotedCategory = Category6;
+                // PromotedCategory = Category6;
                 PromotedIsBig = true;
-                ShortCutKey = 'F9';
-                ToolTip = 'Post the document';
+                ToolTip = 'Delete All documents and lines';
 
                 trigger OnAction()
                 var
-                    GudFoodOrderPost: Codeunit "GudFood Order Post";
+                    GudFoodOrderHeaderPosted: Record "GudFood Order Header Posted";
+                    GudFoodOrderLinePosted: Record "GudFood Order Line Posted";
                 begin
-                    GudFoodOrderPost.PostGudFood(Rec);
+                    GudFoodOrderHeaderPosted.SetRange("No.");
+                    if not GudFoodOrderHeaderPosted.IsEmpty then
+                        GudFoodOrderHeaderPosted.DeleteAll();
+
+                    GudFoodOrderLinePosted.SetRange("GudFood Order No.");
+                    if not GudFoodOrderLinePosted.IsEmpty then
+                        GudFoodOrderLinePosted.DeleteAll();
                 end;
             }
         }

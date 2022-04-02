@@ -1,11 +1,9 @@
-page 50252 "GudFood Order"
+page 50256 "GudFood Order Posted"
 {
-    Caption = 'GudFood Order';
+    Caption = 'GudFood Order Posted';
     PageType = Document;
-    SourceTable = "GudFood Order Header";
+    SourceTable = "GudFood Order Header Posted";
     UsageCategory = None;
-    PromotedActionCategories = 'New,Process,Report,Approve,Release,Posting,Prepare,Order,Request Approval,History,Print/Send,Navigate';
-    Extensible = true;
     Editable = true;
 
     layout
@@ -14,6 +12,7 @@ page 50252 "GudFood Order"
         {
             group(General)
             {
+                Editable = false;
                 field("No."; Rec."No.")
                 {
                     ToolTip = 'Specifies the value of the No. field.';
@@ -37,6 +36,11 @@ page 50252 "GudFood Order"
                     ToolTip = 'Specifies the value of the Date Created field.';
                     ApplicationArea = All;
                 }
+                field("Posted Date"; Rec."Posted Date")
+                {
+                    ToolTip = 'Specifies the value of the Posted Date field.';
+                    ApplicationArea = All;
+                }
                 field("Total Qty"; Rec."Total Qty")
                 {
                     ToolTip = 'Specifies the value of the Total Qty field.';
@@ -48,38 +52,13 @@ page 50252 "GudFood Order"
                     ApplicationArea = All;
                 }
             }
-            part(SalesLines; "GudFood Order Subpage")
+            part(SalesLines; "GudFood Order Subpage Posted")
             {
                 ApplicationArea = All;
                 SubPageLink = "GudFood Order No." = field("No.");
                 UpdatePropagation = Both;
                 Editable = true;
                 Enabled = (Rec."Sell- to Customer No." <> '');
-            }
-        }
-    }
-    actions
-    {
-        area(Processing)
-        {
-            action(Post)
-            {
-                ApplicationArea = Basic, Suite;
-                Caption = 'P&ost';
-                Ellipsis = true;
-                Image = PostOrder;
-                Promoted = true;
-                PromotedCategory = Category6;
-                PromotedIsBig = true;
-                ShortCutKey = 'F9';
-                ToolTip = 'Post the document';
-
-                trigger OnAction()
-                var
-                    GudFoodOrderPost: Codeunit "GudFood Order Post";
-                begin
-                    GudFoodOrderPost.PostGudFood(Rec);
-                end;
             }
         }
     }

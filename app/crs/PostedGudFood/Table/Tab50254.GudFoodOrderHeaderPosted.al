@@ -1,6 +1,6 @@
-table 50251 "GudFood Order Header"
+table 50254 "GudFood Order Header Posted"
 {
-    Caption = 'GudFood Order Header';
+    Caption = 'GudFood Order Header Posted';
     DataClassification = ToBeClassified;
 
     fields
@@ -10,36 +10,24 @@ table 50251 "GudFood Order Header"
             Caption = 'No.';
             DataClassification = CustomerContent;
             // NotBlank = true;
-
-            trigger OnValidate()
-            var
-                RentalSetup: Record "GudFood Order Setup";
-                NoSeriesMgt: Codeunit NoSeriesManagement;
-            begin
-                if "No." <> xRec."No." then begin
-                    TestNoSeries(RentalSetup);
-                    NoSeriesMgt.TestManual(RentalSetup."Rental Nos.");
-                    "No. Series" := '';
-                end;
-            end;
         }
         field(20; "Sell- to Customer No."; Code[20])
         {
             Caption = 'Sell- to Customer No.';
             DataClassification = CustomerContent;
-            TableRelation = Customer."No.";
-            NotBlank = true;
+            // TableRelation = Customer."No.";
+            // NotBlank = true;
 
-            trigger OnValidate()
-            var
-                Customer: Record Customer;
-            begin
-                if "Sell- to Customer No." <> '' then begin
-                    Customer.Get("Sell- to Customer No.");
-                    Rec.Validate("Sell-to Customer Name", Customer.Name);
-                    Rec.Validate("Date Created", WorkDate());
-                end;
-            end;
+            // trigger OnValidate()
+            // var
+            //     Customer: Record Customer;
+            // begin
+            //     if "Sell- to Customer No." <> '' then begin
+            //         Customer.Get("Sell- to Customer No.");
+            //         Rec.Validate("Sell-to Customer Name", Customer.Name);
+            //         Rec.Validate("Date Created", Today);
+            //     end;
+            // end;
         }
         field(30; "Sell-to Customer Name"; Text[100])
         {
@@ -58,14 +46,14 @@ table 50251 "GudFood Order Header"
             Caption = 'Total Qty';
             Editable = false;
             FieldClass = FlowField;
-            CalcFormula = sum("GudFood Order Line".Quantity where("GudFood Order No." = field("No.")));
+            CalcFormula = sum("GudFood Order Line Posted".Quantity where("GudFood Order No." = field("No.")));
         }
         field(60; "Total Amount"; Decimal)
         {
             Caption = 'Total Amount';
             Editable = false;
             FieldClass = FlowField;
-            CalcFormula = sum("GudFood Order Line".Amount where("GudFood Order No." = field("No.")));
+            CalcFormula = sum("GudFood Order Line Posted".Amount where("GudFood Order No." = field("No.")));
         }
         field(70; "No. Series"; Code[20])
         {
@@ -74,6 +62,13 @@ table 50251 "GudFood Order Header"
             TableRelation = "No. Series";
             DataClassification = CustomerContent;
         }
+        field(80; "Posted Date"; Date)
+        {
+            Caption = 'Posted Date';
+            Editable = false;
+            DataClassification = CustomerContent;
+        }
+
     }
     keys
     {
@@ -85,7 +80,7 @@ table 50251 "GudFood Order Header"
 
     trigger OnDelete()
     var
-        GudFoodMgt: Codeunit "GudFood Mgt.";
+        GudFoodMgt: Codeunit "GudFood Mgt. Posted";
     begin
         GudFoodMgt.DeleteGudFoodLine(Rec."No.");
         GudFoodMgt.DeleteGudFoodLine('');
