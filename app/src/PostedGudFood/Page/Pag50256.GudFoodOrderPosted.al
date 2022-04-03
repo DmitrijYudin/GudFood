@@ -4,7 +4,7 @@ page 50256 "GudFood Order Posted"
     PageType = Document;
     SourceTable = "GudFood Order Header Posted";
     UsageCategory = None;
-    Editable = true;
+    Editable = false;
 
     layout
     {

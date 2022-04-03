@@ -9,7 +9,6 @@ table 50251 "GudFood Order Header"
         {
             Caption = 'No.';
             DataClassification = CustomerContent;
-            // NotBlank = true;
 
             trigger OnValidate()
             var
@@ -88,7 +87,6 @@ table 50251 "GudFood Order Header"
         GudFoodMgt: Codeunit "GudFood Mgt.";
     begin
         GudFoodMgt.DeleteGudFoodLine(Rec."No.");
-        GudFoodMgt.DeleteGudFoodLine('');
     end;
 
     trigger OnInsert()

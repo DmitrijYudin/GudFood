@@ -57,7 +57,7 @@ page 50253 "GudFood Order List"
                 ApplicationArea = All;
                 Ellipsis = true;
                 Promoted = true;
-                PromotedCategory = Category7;
+                //PromotedCategory = Category7;
                 PromotedIsBig = true;
                 //PromotedOnly = true;
                 Image = Export;

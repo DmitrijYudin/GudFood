@@ -56,14 +56,14 @@ page 50257 "GudFood Order List Posted"
     {
         area(Processing)
         {
-            action("Delete All")
+            action("Delete All Data")
             {
+                // It is for debuging and clearing Posted documents 
                 ApplicationArea = Basic, Suite;
                 Caption = 'D&elete All documents and lines';
                 Ellipsis = true;
                 Image = Delete;
                 Promoted = true;
-                // PromotedCategory = Category6;
                 PromotedIsBig = true;
                 ToolTip = 'Delete All documents and lines';
 

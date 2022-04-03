@@ -10,18 +10,6 @@ table 50255 "GudFood Order Line Posted"
         {
             Caption = 'GudFood Order No.', Comment = 'ESP="Code."';
             DataClassification = CustomerContent;
-            // TableRelation = "GudFood Order Header"."No.";
-            // Editable = false;
-
-            // trigger OnValidate()
-            // var
-            //     GudFoodOrderHeader: Record "GudFood Order Header";
-            // begin
-            //     if "GudFood Order No." <> '' then begin
-            //         GudFoodOrderHeader.Get(Rec."GudFood Order No.");
-            //         Rec.Validate("Date Created", GudFoodOrderHeader."Date Created");
-            //     end;
-            // end;
         }
         field(20; "Line No."; Integer)
         {
@@ -34,7 +22,6 @@ table 50255 "GudFood Order Line Posted"
             Caption = 'Sell- to Customer No.';
             DataClassification = CustomerContent;
             Editable = false;
-            //TableRelation = "GudFood Order Header"."Sell- to Customer No." where("No." = field("GudFood Order No."));
         }
         field(40; "Date Created"; Date)
         {
@@ -79,14 +66,12 @@ table 50255 "GudFood Order Line Posted"
             Caption = 'Item Type';
             DataClassification = CustomerContent;
             Editable = false;
-            //TableRelation = "GudFood Item"."GudFood Type";
         }
         field(70; Description; Text[100])
         {
             Caption = 'Description';
             DataClassification = CustomerContent;
             Editable = false;
-            //TableRelation = "GudFood Item".Description;
         }
         field(80; Quantity; Integer)
         {
@@ -106,7 +91,6 @@ table 50255 "GudFood Order Line Posted"
             Caption = 'Unit Price';
             DataClassification = CustomerContent;
             Editable = false;
-            //TableRelation = "GudFood Item"."Unit Price";
 
             trigger OnValidate()
             begin
@@ -118,7 +102,6 @@ table 50255 "GudFood Order Line Posted"
             Caption = 'Shelf Life';
             DataClassification = CustomerContent;
             Editable = false;
-            //TableRelation = "GudFood Item"."Shelf Life";
         }
         field(100; Amount; Decimal)
         {
@@ -132,7 +115,6 @@ table 50255 "GudFood Order Line Posted"
             Editable = false;
             DataClassification = CustomerContent;
         }
-
     }
     keys
     {

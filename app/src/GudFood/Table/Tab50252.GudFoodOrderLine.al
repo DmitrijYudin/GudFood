@@ -33,7 +33,6 @@ table 50252 "GudFood Order Line"
             Caption = 'Sell- to Customer No.';
             DataClassification = CustomerContent;
             Editable = false;
-            //TableRelation = "GudFood Order Header"."Sell- to Customer No." where("No." = field("GudFood Order No."));
         }
         field(40; "Date Created"; Date)
         {
@@ -78,14 +77,12 @@ table 50252 "GudFood Order Line"
             Caption = 'Item Type';
             DataClassification = CustomerContent;
             Editable = false;
-            //TableRelation = "GudFood Item"."GudFood Type";
         }
         field(70; Description; Text[100])
         {
             Caption = 'Description';
             DataClassification = CustomerContent;
             Editable = false;
-            //TableRelation = "GudFood Item".Description;
         }
         field(80; Quantity; Integer)
         {
@@ -105,7 +102,6 @@ table 50252 "GudFood Order Line"
             Caption = 'Unit Price';
             DataClassification = CustomerContent;
             Editable = false;
-            //TableRelation = "GudFood Item"."Unit Price";
 
             trigger OnValidate()
             begin
@@ -117,7 +113,6 @@ table 50252 "GudFood Order Line"
             Caption = 'Shelf Life';
             DataClassification = CustomerContent;
             Editable = false;
-            //TableRelation = "GudFood Item"."Shelf Life";
         }
         field(100; Amount; Decimal)
         {

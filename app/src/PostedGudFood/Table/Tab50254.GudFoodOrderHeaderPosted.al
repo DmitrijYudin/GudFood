@@ -9,25 +9,11 @@ table 50254 "GudFood Order Header Posted"
         {
             Caption = 'No.';
             DataClassification = CustomerContent;
-            // NotBlank = true;
         }
         field(20; "Sell- to Customer No."; Code[20])
         {
             Caption = 'Sell- to Customer No.';
             DataClassification = CustomerContent;
-            // TableRelation = Customer."No.";
-            // NotBlank = true;
-
-            // trigger OnValidate()
-            // var
-            //     Customer: Record Customer;
-            // begin
-            //     if "Sell- to Customer No." <> '' then begin
-            //         Customer.Get("Sell- to Customer No.");
-            //         Rec.Validate("Sell-to Customer Name", Customer.Name);
-            //         Rec.Validate("Date Created", Today);
-            //     end;
-            // end;
         }
         field(30; "Sell-to Customer Name"; Text[100])
         {
@@ -77,14 +63,6 @@ table 50254 "GudFood Order Header Posted"
             Clustered = true;
         }
     }
-
-    trigger OnDelete()
-    var
-        GudFoodMgt: Codeunit "GudFood Mgt. Posted";
-    begin
-        GudFoodMgt.DeleteGudFoodLine(Rec."No.");
-        GudFoodMgt.DeleteGudFoodLine('');
-    end;
 
     trigger OnInsert()
     begin
