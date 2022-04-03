@@ -4,8 +4,8 @@ report 50250 "GudFood Order Report"
     Caption = 'GudFood Order Report';
     UsageCategory = ReportsAndAnalysis;
 
-    WordLayout = 'crs\Layout\GudFoodReportPrint.docx';
-    //RDLCLayout = 'crs\Layout\GudFoodReport.rdlc';
+    WordLayout = 'src\Layout\GudFoodReportPrint.docx';
+    //RDLCLayout = 'src\Layout\GudFoodReport.rdlc';
     DefaultLayout = Word;
     PreviewMode = PrintLayout;
     //WordMergeDataItem = "GudFood Order Header";
