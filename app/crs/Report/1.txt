@@ -17,7 +17,7 @@ report 50250 "GudFood Order Report"
             // DataItemTableView = SORTING("No.");
             RequestFilterFields = "No.";
             // RequestFilterHeading = 'GudFood Order';
-            // UseTemporary = true;
+            UseTemporary = true;
             column(DateCreated_GudFoodOrderHeader; "Date Created")
             {
                 IncludeCaption = true;
@@ -122,3 +122,5 @@ report 50250 "GudFood Order Report"
         }
     }
 }
+© 2022 GitHub, Inc.
+Terms
