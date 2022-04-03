@@ -10,9 +10,9 @@ table 50253 "GudFood Order Setup"
             Caption = 'No.';
             DataClassification = CustomerContent;
         }
-        field(2; "Rental Nos."; Code[20])
+        field(2; "GudFood Nos."; Code[20])
         {
-            Caption = 'Rental Nos.';
+            Caption = 'GudFood Nos.';
             DataClassification = CustomerContent;
             TableRelation = "No. Series";
         }

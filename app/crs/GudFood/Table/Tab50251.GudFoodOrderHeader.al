@@ -13,12 +13,12 @@ table 50251 "GudFood Order Header"
 
             trigger OnValidate()
             var
-                RentalSetup: Record "GudFood Order Setup";
+                GudFoodOrderSetup: Record "GudFood Order Setup";
                 NoSeriesMgt: Codeunit NoSeriesManagement;
             begin
                 if "No." <> xRec."No." then begin
-                    TestNoSeries(RentalSetup);
-                    NoSeriesMgt.TestManual(RentalSetup."Rental Nos.");
+                    TestNoSeries(GudFoodOrderSetup);
+                    NoSeriesMgt.TestManual(GudFoodOrderSetup."GudFood Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -98,23 +98,23 @@ table 50251 "GudFood Order Header"
 
     local procedure InitInsert()
     var
-        RentalSetup: Record "GudFood Order Setup";
+        GudFoodOrderSetup: Record "GudFood Order Setup";
         NoSeriesManagement: Codeunit NoSeriesManagement;
     begin
         if "No." <> '' then
             exit;
 
-        TestNoSeries(RentalSetup);
-        NoSeriesManagement.InitSeries(RentalSetup."Rental Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+        TestNoSeries(GudFoodOrderSetup);
+        NoSeriesManagement.InitSeries(GudFoodOrderSetup."GudFood Nos.", xRec."No. Series", 0D, "No.", "No. Series");
     end;
 
-    local procedure TestNoSeries(var RentalSetup: Record "GudFood Order Setup")
+    local procedure TestNoSeries(var GudFoodOrderSetup: Record "GudFood Order Setup")
     begin
-        if not RentalSetup.get() then begin
-            RentalSetup.Insert();
+        if not GudFoodOrderSetup.get() then begin
+            GudFoodOrderSetup.Insert();
             Commit();
         end;
-        RentalSetup.TestField("Rental Nos.");
+        GudFoodOrderSetup.TestField("GudFood Nos.");
     end;
 
 }

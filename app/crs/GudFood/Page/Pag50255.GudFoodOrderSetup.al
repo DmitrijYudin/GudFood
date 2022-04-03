@@ -13,7 +13,7 @@ page 50255 "GudFood Order Setup"
         {
             group(Numbering)
             {
-                field("Rental Nos."; Rec."Rental Nos.")
+                field("GudFood Nos."; Rec."GudFood Nos.")
                 {
                     ToolTip = 'Specifies the value of the Radio Show Nos. field.';
                     ApplicationArea = All;
