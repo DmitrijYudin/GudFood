@@ -47,4 +47,31 @@ page 50253 "GudFood Order List"
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            action("GudFood XMLPort Export")
+            {
+                Caption = 'Export Orders XML';
+                ApplicationArea = All;
+                Ellipsis = true;
+                Promoted = true;
+                PromotedCategory = Category7;
+                PromotedIsBig = true;
+                //PromotedOnly = true;
+                Image = Export;
+                ToolTip = 'Executes GudFood Export Order';
+
+                trigger OnAction()
+                var
+                    GudFoodOrderHeader: Record "GudFood Order Header";
+                    GudFoodXMLExportSelect: XmlPort "GudFood XML Export Select";
+                begin
+                    CurrPage.SetSelectionFilter(GudFoodOrderHeader);
+                    GudFoodXMLExportSelect.Run();
+                end;
+            }
+        }
+    }
 }

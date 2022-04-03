@@ -101,9 +101,9 @@ page 50252 "GudFood Order"
                 end;
             }
 
-            action("GudFood Export Order")
+            action("GudFood Export Order XML")
             {
-                Caption = 'GudFood Export Order';
+                Caption = 'GudFood Export Order XML';
                 ApplicationArea = All;
                 RunObject = xmlport "GudFood XML Export";
                 Ellipsis = true;
