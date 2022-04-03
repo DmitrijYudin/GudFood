@@ -63,31 +63,4 @@ table 50254 "GudFood Order Header Posted"
             Clustered = true;
         }
     }
-
-    trigger OnInsert()
-    begin
-        InitInsert();
-    end;
-
-    local procedure InitInsert()
-    var
-        GudFoodOrderSetup: Record "GudFood Order Setup";
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-    begin
-        if "No." <> '' then
-            exit;
-
-        TestNoSeries(GudFoodOrderSetup);
-        NoSeriesManagement.InitSeries(GudFoodOrderSetup."GudFood Nos.", xRec."No. Series", 0D, "No.", "No. Series");
-    end;
-
-    local procedure TestNoSeries(var GudFoodOrderSetup: Record "GudFood Order Setup")
-    begin
-        if not GudFoodOrderSetup.get() then begin
-            GudFoodOrderSetup.Insert();
-            Commit();
-        end;
-        GudFoodOrderSetup.TestField("GudFood Nos.");
-    end;
-
 }

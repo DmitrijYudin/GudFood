@@ -35,31 +35,6 @@ table 50255 "GudFood Order Line Posted"
             DataClassification = CustomerContent;
             TableRelation = "GudFood Item".Code;
             NotBlank = true;
-
-            trigger OnValidate()
-            var
-                GudFoodItem: Record "GudFood Item";
-                GudFoodOrderHeader: Record "GudFood Order Header";
-                ShelfLifeErr: Label 'Item %1 Shelf Life %2 is expired! Today is %3', Comment = '%1 = Code, %2 = Shelf Life, %3 = Today date';
-            begin
-                if "Item No." <> '' then begin
-                    GudFoodOrderHeader.Get(Rec."GudFood Order No.");
-                    GudFoodOrderHeader.TestField("Sell- to Customer No.");
-
-                    GudFoodItem.Get(Rec."Item No.");
-                    GudFoodItem.TestField("Shelf Life");
-
-                    if GudFoodItem."Shelf Life" < Today then
-                        Error(ShelfLifeErr, GudFoodItem.Code, GudFoodItem."Shelf Life", Today);
-
-                    Rec.Validate("Sell- to Customer No.", GudFoodOrderHeader."Sell- to Customer No.");
-
-                    Rec.Validate("Item Type", GudFoodItem."GudFood Type");
-                    Rec.Validate(Description, GudFoodItem.Description);
-                    Rec.Validate("Unit Price", GudFoodItem."Unit Price");
-                    Rec.Validate("Shelf Life", GudFoodItem."Shelf Life");
-                end;
-            end;
         }
         field(60; "Item Type"; Enum "GudFood Type")
         {
@@ -80,22 +55,12 @@ table 50255 "GudFood Order Line Posted"
             InitValue = 1;
             MinValue = 1;
             NotBlank = true;
-
-            trigger OnValidate()
-            begin
-                CalcLineAmount();
-            end;
         }
         field(90; "Unit Price"; Decimal)
         {
             Caption = 'Unit Price';
             DataClassification = CustomerContent;
             Editable = false;
-
-            trigger OnValidate()
-            begin
-                CalcLineAmount();
-            end;
         }
         field(91; "Shelf Life"; Date)
         {
@@ -123,8 +88,4 @@ table 50255 "GudFood Order Line Posted"
             Clustered = true;
         }
     }
-    local procedure CalcLineAmount()
-    begin
-        Amount := Quantity * "Unit Price";
-    end;
 }
