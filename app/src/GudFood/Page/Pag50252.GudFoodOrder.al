@@ -97,8 +97,16 @@ page 50252 "GudFood Order"
 
                 trigger OnAction()
                 var
+                    GudFoodOrderHeader: Record "GudFood Order Header";
+                    GudFoodOrderLine: Record "GudFood Order Line";
                     GudFoodOrderReport: Report "GudFood Order Report";
                 begin
+                    GudFoodOrderHeader.SetRange("No.", Rec."No.");
+                    GudFoodOrderReport.SetTableView(GudFoodOrderHeader);
+
+                    GudFoodOrderLine.SetRange("GudFood Order No.", Rec."No.");
+                    GudFoodOrderReport.SetTableView(GudFoodOrderLine);
+
                     GudFoodOrderReport.Run();
                 end;
             }

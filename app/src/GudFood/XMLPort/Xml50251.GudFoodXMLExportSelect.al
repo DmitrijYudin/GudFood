@@ -28,42 +28,41 @@ xmlport 50251 "GudFood XML Export Select"
                 fieldelement(TotalAmount; GudFoodOrderHeader."Total Amount")
                 {
                 }
-            }
-            tableelement(GudFoodOrderLine; "GudFood Order Line")
-            {
-
-                fieldelement(GudFoodOrderNo; GudFoodOrderLine."GudFood Order No.")
+                tableelement(GudFoodOrderLine; "GudFood Order Line")
                 {
-                }
-                fieldelement(DateCreated; GudFoodOrderLine."Date Created")
-                {
-                }
-                fieldelement(LineNo; GudFoodOrderLine."Line No.")
-                {
-                }
-                fieldelement(ItemNo; GudFoodOrderLine."Item No.")
-                {
-                }
-                fieldelement(ItemType; GudFoodOrderLine."Item Type")
-                {
-                }
-                fieldelement(Description; GudFoodOrderLine.Description)
-                {
-                }
-                fieldelement(ShelfLife; GudFoodOrderLine."Shelf Life")
-                {
-                }
-                fieldelement(SelltoCustomerNo; GudFoodOrderLine."Sell- to Customer No.")
-                {
-                }
-                fieldelement(Amount; GudFoodOrderLine.Amount)
-                {
-                }
-                fieldelement(UnitPrice; GudFoodOrderLine."Unit Price")
-                {
-                }
-                fieldelement(Quantity; GudFoodOrderLine.Quantity)
-                {
+                    fieldelement(GudFoodOrderNo; GudFoodOrderLine."GudFood Order No.")
+                    {
+                    }
+                    fieldelement(DateCreated; GudFoodOrderLine."Date Created")
+                    {
+                    }
+                    fieldelement(LineNo; GudFoodOrderLine."Line No.")
+                    {
+                    }
+                    fieldelement(ItemNo; GudFoodOrderLine."Item No.")
+                    {
+                    }
+                    fieldelement(ItemType; GudFoodOrderLine."Item Type")
+                    {
+                    }
+                    fieldelement(Description; GudFoodOrderLine.Description)
+                    {
+                    }
+                    fieldelement(ShelfLife; GudFoodOrderLine."Shelf Life")
+                    {
+                    }
+                    fieldelement(SelltoCustomerNo; GudFoodOrderLine."Sell- to Customer No.")
+                    {
+                    }
+                    fieldelement(Amount; GudFoodOrderLine.Amount)
+                    {
+                    }
+                    fieldelement(UnitPrice; GudFoodOrderLine."Unit Price")
+                    {
+                    }
+                    fieldelement(Quantity; GudFoodOrderLine.Quantity)
+                    {
+                    }
                 }
             }
         }
