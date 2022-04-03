@@ -6,6 +6,7 @@ page 50253 "GudFood Order List"
     SourceTable = "GudFood Order Header";
     UsageCategory = Lists;
     CardPageId = "GudFood Order";
+    PromotedActionCategories = 'New,Process,Report,Approve,Release,Posting,Prepare,Order,Request Approval,History,Print/Send,Navigate';
     Editable = false;
 
     layout
@@ -55,11 +56,6 @@ page 50253 "GudFood Order List"
             {
                 Caption = 'Export Orders XML';
                 ApplicationArea = All;
-                Ellipsis = true;
-                Promoted = true;
-                //PromotedCategory = Category7;
-                PromotedIsBig = true;
-                //PromotedOnly = true;
                 Image = Export;
                 ToolTip = 'Executes GudFood Export Order';
 

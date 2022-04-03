@@ -56,6 +56,7 @@ page 50255 "GudFood Order Setup"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
+                Image = Delete;
                 ToolTip = 'Delete Nos';
                 PromotedOnly = true;
 
@@ -64,7 +65,8 @@ page 50255 "GudFood Order Setup"
                     GudFoodOrderSetup: Record "GudFood Order Setup";
                 begin
                     GudFoodOrderSetup.FindSet();
-                    GudFoodOrderSetup.DeleteAll();
+                    if not GudFoodOrderSetup.IsEmpty then
+                        GudFoodOrderSetup.DeleteAll();
                 end;
             }
         }

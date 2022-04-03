@@ -39,7 +39,7 @@ page 50250 "GudFood Item List"
                     ToolTip = 'Specifies the value of the Qty. Ordered field.';
                     ApplicationArea = All;
                 }
-                field("Qty. in Order"; Rec."Qty. in Order")
+                field("Qty. in Orders"; Rec."Qty. in Orders")
                 {
                     ToolTip = 'Specifies the value of the Qty. in Order field.';
                     ApplicationArea = All;

@@ -29,19 +29,19 @@ table 50250 "GudFood Item"
         {
             Caption = 'Shelf Life';
             DataClassification = CustomerContent;
-            
+
         }
-        field(60; "Qty. Ordered"; Decimal)
+        field(60; "Qty. Ordered"; Integer)
         {
             Caption = 'Qty. Ordered';
-            //DataClassification = CustomerContent;
-            //FieldClass = FlowField;
+            FieldClass = FlowField;
+            CalcFormula = sum("GudFood Order Line Posted".Quantity where("Item No." = field(Code)));
         }
-        field(70; "Qty. in Order"; Decimal)
+        field(70; "Qty. in Orders"; Integer)
         {
-            Caption = 'Qty. in Order';
-            //DataClassification = CustomerContent;
-            //FieldClass = FlowField;
+            Caption = 'Qty. in Orders';
+            FieldClass = FlowField;
+            CalcFormula = sum("GudFood Order Line".Quantity where("Item No." = field(Code)));
         }
     }
     keys
