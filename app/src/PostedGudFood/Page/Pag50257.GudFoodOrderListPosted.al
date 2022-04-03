@@ -58,7 +58,7 @@ page 50257 "GudFood Order List Posted"
         {
             action("Delete All Data")
             {
-                // It is for debuging and clearing Posted documents 
+                // It is for debugging and clearing Posted documents 
                 ApplicationArea = Basic, Suite;
                 Caption = 'D&elete All documents and lines';
                 Ellipsis = true;
@@ -66,6 +66,7 @@ page 50257 "GudFood Order List Posted"
                 Promoted = true;
                 PromotedIsBig = true;
                 ToolTip = 'Delete All documents and lines';
+                PromotedOnly = true;
 
                 trigger OnAction()
                 var

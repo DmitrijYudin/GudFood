@@ -73,6 +73,7 @@ page 50252 "GudFood Order"
                 PromotedIsBig = true;
                 ShortCutKey = 'F9';
                 ToolTip = 'Post the document';
+                // PromotedOnly = true;
 
                 trigger OnAction()
                 var
@@ -92,6 +93,7 @@ page 50252 "GudFood Order"
                 PromotedIsBig = true;
                 ShortCutKey = 'Ctrl+P';
                 ToolTip = 'Print';
+                // PromotedOnly = true;
 
                 trigger OnAction()
                 var
