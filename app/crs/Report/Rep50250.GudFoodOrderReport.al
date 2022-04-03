@@ -3,7 +3,7 @@ report 50250 "GudFood Order Report"
     ApplicationArea = All;
     Caption = 'GudFood Order Report';
     UsageCategory = ReportsAndAnalysis;
-    WordLayout = 'crs\Layout\GudFoodReport.docx';
+    WordLayout = 'crs\Layout\GudFoodReportPrint.docx';
     //RDLCLayout = 'crs\Layout\GudFoodReport.rdlc';
     DefaultLayout = Word;
     dataset
@@ -78,6 +78,30 @@ report 50250 "GudFood Order Report"
                 IncludeCaption = true;
             }
             column(TotalQty_GudFoodOrderHeader; "Total Qty")
+            {
+                IncludeCaption = true;
+            }
+        }
+        dataitem(User; User)
+        {
+
+            column(FullName_User; "Full Name")
+            {
+                IncludeCaption = true;
+            }
+            column(UserName_User; "User Name")
+            {
+                IncludeCaption = true;
+            }
+            column(UserSecurityID_User; "User Security ID")
+            {
+                IncludeCaption = true;
+            }
+        }
+        dataitem("User Setup"; "User Setup")
+        {
+
+            column(UserID_UserSetup; "User ID")
             {
                 IncludeCaption = true;
             }
