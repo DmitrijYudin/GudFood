@@ -2,7 +2,6 @@ table 50254 "GudFood Order Header Posted"
 {
     Caption = 'GudFood Order Header Posted';
     DataClassification = ToBeClassified;
-
     fields
     {
         field(1; "No."; Code[20])

@@ -2,7 +2,6 @@ table 50250 "GudFood Item"
 {
     Caption = 'GudFood Item';
     DataClassification = ToBeClassified;
-
     fields
     {
         field(1; "Code"; Code[20])
@@ -29,7 +28,6 @@ table 50250 "GudFood Item"
         {
             Caption = 'Shelf Life';
             DataClassification = CustomerContent;
-
         }
         field(60; "Qty. Ordered"; Integer)
         {

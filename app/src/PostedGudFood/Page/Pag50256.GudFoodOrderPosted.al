@@ -5,7 +5,6 @@ page 50256 "GudFood Order Posted"
     SourceTable = "GudFood Order Header Posted";
     UsageCategory = None;
     Editable = false;
-
     layout
     {
         area(content)

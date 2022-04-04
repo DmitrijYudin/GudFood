@@ -2,7 +2,6 @@ table 50251 "GudFood Order Header"
 {
     Caption = 'GudFood Order Header';
     DataClassification = ToBeClassified;
-
     fields
     {
         field(1; "No."; Code[20])
@@ -93,7 +92,6 @@ table 50251 "GudFood Order Header"
     begin
         InitInsert();
     end;
-
     local procedure InitInsert()
     var
         GudFoodOrderSetup: Record "GudFood Order Setup";
@@ -105,7 +103,6 @@ table 50251 "GudFood Order Header"
         TestNoSeries(GudFoodOrderSetup);
         NoSeriesManagement.InitSeries(GudFoodOrderSetup."GudFood Nos.", xRec."No. Series", 0D, "No.", "No. Series");
     end;
-
     local procedure TestNoSeries(var GudFoodOrderSetup: Record "GudFood Order Setup")
     begin
         if not GudFoodOrderSetup.get() then begin
@@ -114,5 +111,4 @@ table 50251 "GudFood Order Header"
         end;
         GudFoodOrderSetup.TestField("GudFood Nos.");
     end;
-
 }

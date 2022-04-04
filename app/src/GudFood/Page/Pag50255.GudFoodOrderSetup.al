@@ -6,7 +6,6 @@ page 50255 "GudFood Order Setup"
     ApplicationArea = All;
     UsageCategory = Administration;
     Editable = true;
-
     layout
     {
         area(content)
@@ -44,7 +43,6 @@ page 50255 "GudFood Order Setup"
             }
         }
     }
-
     actions
     {
         area(Processing)

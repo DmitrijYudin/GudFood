@@ -7,7 +7,6 @@ page 50254 "GudFood Order Subpage"
     MultipleNewLines = false;
     DelayedInsert = true;
     LinksAllowed = false;
-
     layout
     {
         area(content)

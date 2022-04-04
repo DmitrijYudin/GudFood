@@ -7,7 +7,6 @@ page 50257 "GudFood Order List Posted"
     UsageCategory = Lists;
     CardPageId = "GudFood Order Posted";
     Editable = false;
-
     layout
     {
         area(content)

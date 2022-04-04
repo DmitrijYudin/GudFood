@@ -7,7 +7,6 @@ page 50250 "GudFood Item List"
     UsageCategory = Lists;
     Editable = false;
     CardPageId = "GudFood Item Card";
-
     layout
     {
         area(content)

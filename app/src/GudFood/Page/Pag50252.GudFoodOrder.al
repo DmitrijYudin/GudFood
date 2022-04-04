@@ -7,7 +7,6 @@ page 50252 "GudFood Order"
     PromotedActionCategories = 'New,Process,Report,Approve,Release,Posting,Prepare,Order,Request Approval,History,Print/Send,Navigate';
     Extensible = true;
     Editable = true;
-
     layout
     {
         area(content)

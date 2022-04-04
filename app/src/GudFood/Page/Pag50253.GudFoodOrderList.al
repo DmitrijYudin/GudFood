@@ -8,7 +8,6 @@ page 50253 "GudFood Order List"
     CardPageId = "GudFood Order";
     PromotedActionCategories = 'New,Process,Report,Approve,Release,Posting,Prepare,Order,Request Approval,History,Print/Send,Navigate';
     Editable = false;
-
     layout
     {
         area(content)
@@ -69,7 +68,6 @@ page 50253 "GudFood Order List"
                     GudFoodXMLExportSelect.SetTableView(GudFoodOrderHeader);
 
                     Xmlport.Run(50251, false, false, GudFoodOrderHeader);
-                    // GudFoodXMLExportSelect.Run();
                 end;
             }
             action("GudFood XMLPort Export 2")
@@ -99,7 +97,6 @@ page 50253 "GudFood Order List"
                             GudFoodXMLExportSelect.SetTableView(GudFoodOrderLine);
 
                             GudFoodXMLExportSelect.Run();
-                        // Xmlport.Run(50251, false, false, GudFoodOrderHeader);
                         until GudFoodOrderHeader.Next() = 0;
                         Message(MessageTxt, RecordsSelected);
                     end;

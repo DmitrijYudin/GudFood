@@ -2,7 +2,6 @@ table 50252 "GudFood Order Line"
 {
     Caption = 'GudFood Order Line';
     DataClassification = ToBeClassified;
-
     fields
     {
         field(1; "GudFood Order No."; Code[20])

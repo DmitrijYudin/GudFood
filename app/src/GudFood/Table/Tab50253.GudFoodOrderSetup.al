@@ -2,7 +2,6 @@ table 50253 "GudFood Order Setup"
 {
     Caption = 'GudFood Order Setup';
     DataClassification = ToBeClassified;
-
     fields
     {
         field(1; "No."; Code[10])
@@ -42,7 +41,6 @@ table 50253 "GudFood Order Setup"
         key(PK; "No.")
         {
             Clustered = true;
-
         }
     }
 }

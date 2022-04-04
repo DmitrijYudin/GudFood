@@ -3,9 +3,7 @@ report 50250 "GudFood Order Report"
     ApplicationArea = All;
     Caption = 'GudFood Order Report';
     UsageCategory = ReportsAndAnalysis;
-
     WordLayout = 'src\Layout\GudFoodReportPrint.docx';
-    //RDLCLayout = 'src\Layout\GudFoodReport.rdlc';
     DefaultLayout = Word;
     PreviewMode = PrintLayout;
     WordMergeDataItem = Header;

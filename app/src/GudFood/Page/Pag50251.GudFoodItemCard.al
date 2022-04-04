@@ -5,7 +5,6 @@ page 50251 "GudFood Item Card"
     SourceTable = "GudFood Item";
     Editable = true;
     UsageCategory = None;
-
     layout
     {
         area(content)
@@ -45,7 +44,6 @@ page 50251 "GudFood Item Card"
             group(Quantity)
             {
                 Caption = 'Quantity';
-
                 field("Qty. Ordered"; Rec."Qty. Ordered")
                 {
                     ToolTip = 'Specifies the value of the Qty. Ordered field.';

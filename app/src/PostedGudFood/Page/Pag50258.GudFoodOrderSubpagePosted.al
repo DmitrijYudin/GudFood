@@ -8,7 +8,6 @@ page 50258 "GudFood Order Subpage Posted"
     DelayedInsert = true;
     LinksAllowed = false;
     Editable = false;
-
     layout
     {
         area(content)
