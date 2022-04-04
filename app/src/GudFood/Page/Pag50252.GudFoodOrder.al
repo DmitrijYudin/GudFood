@@ -111,18 +111,33 @@ page 50252 "GudFood Order"
                 end;
             }
 
-            action("GudFood Export Order XML")
+            action("GudFood Order XML Export")
             {
-                Caption = 'GudFood Export Order XML';
+                Caption = 'GudFood Order XML Export';
                 ApplicationArea = All;
-                RunObject = xmlport "GudFood XML Export";
                 Ellipsis = true;
                 Promoted = true;
                 PromotedCategory = Category7;
                 PromotedIsBig = true;
                 //PromotedOnly = true;
                 Image = Export;
-                ToolTip = 'Executes GudFood Export Order';
+                ToolTip = 'GudFood Order XML Export';
+
+
+                trigger OnAction()
+                var
+                    GudFoodOrderHeader: Record "GudFood Order Header";
+                    GudFoodOrderLine: Record "GudFood Order Line";
+                    GudFoodXMLExportSelect: XmlPort "GudFood XML Export Select";
+                begin
+                    GudFoodOrderHeader.SetRange("No.", Rec."No.");
+                    GudFoodXMLExportSelect.SetTableView(GudFoodOrderHeader);
+
+                    GudFoodOrderLine.SetRange("GudFood Order No.", Rec."No.");
+                    GudFoodXMLExportSelect.SetTableView(GudFoodOrderLine);
+
+                    GudFoodXMLExportSelect.Run();
+                end;
             }
         }
     }

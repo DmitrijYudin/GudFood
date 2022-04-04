@@ -10,6 +10,9 @@ xmlport 50251 "GudFood XML Export Select"
         {
             tableelement(GudFoodOrderHeader; "GudFood Order Header")
             {
+                RequestFilterFields = "No.";
+                // RequestFilterHeading = '"GudFood Order Header';
+                // PrintOnlyIfDetail = true;
                 fieldelement(No; GudFoodOrderHeader."No.")
                 {
                 }
@@ -30,6 +33,9 @@ xmlport 50251 "GudFood XML Export Select"
                 }
                 tableelement(GudFoodOrderLine; "GudFood Order Line")
                 {
+
+                    RequestFilterFields = "GudFood Order No.";
+                    // SourceTableView = where(GudFoodOrderNo = const(GudFoodOrderHeader));
                     fieldelement(GudFoodOrderNo; GudFoodOrderLine."GudFood Order No.")
                     {
                     }
