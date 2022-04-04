@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <RootNodeName>
   <GudFoodOrderHeader>
-    <No>0024</No>
+    <No>0028</No>
     <SelltoCustomerNo>10000</SelltoCustomerNo>
     <SelltoCustomerName>SAM6</SelltoCustomerName>
     <DateCreated>2023-01-26</DateCreated>
-    <TotalQty>3</TotalQty>
-    <TotalAmount>120.00</TotalAmount>
+    <TotalQty>2</TotalQty>
+    <TotalAmount>200.00</TotalAmount>
     <GudFoodOrderLine>
-      <GudFoodOrderNo>0024</GudFoodOrderNo>
-      <DateCreated />
+      <GudFoodOrderNo>0028</GudFoodOrderNo>
+      <DateCreated>2023-01-26</DateCreated>
       <LineNo>10000</LineNo>
-      <ItemNo>0001</ItemNo>
-      <ItemType>2</ItemType>
-      <Description>Salad</Description>
-      <ShelfLife>2022-04-06</ShelfLife>
+      <ItemNo>0004</ItemNo>
+      <ItemType>30</ItemType>
+      <Description>Drink</Description>
+      <ShelfLife>2022-04-30</ShelfLife>
       <SelltoCustomerNo>10000</SelltoCustomerNo>
-      <Amount>40.00</Amount>
-      <UnitPrice>20.00</UnitPrice>
-      <Quantity>2</Quantity>
+      <Amount>120.00</Amount>
+      <UnitPrice>120.00</UnitPrice>
+      <Quantity>1</Quantity>
     </GudFoodOrderLine>
     <GudFoodOrderLine>
-      <GudFoodOrderNo>0024</GudFoodOrderNo>
+      <GudFoodOrderNo>0028</GudFoodOrderNo>
       <DateCreated>2023-01-26</DateCreated>
       <LineNo>20000</LineNo>
       <ItemNo>0002</ItemNo>

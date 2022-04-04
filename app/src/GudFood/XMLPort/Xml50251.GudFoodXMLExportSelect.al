@@ -34,8 +34,11 @@ xmlport 50251 "GudFood XML Export Select"
                 tableelement(GudFoodOrderLine; "GudFood Order Line")
                 {
 
-                    RequestFilterFields = "GudFood Order No.";
+                    // RequestFilterFields = "GudFood Order No.";
                     // SourceTableView = where(GudFoodOrderNo = const(GudFoodOrderHeader));
+                    // LinkFields = "GudFood Order No.";
+                    LinkTable = GudFoodOrderHeader;
+                    LinkFields = "GudFood Order No." = field("No.");
                     fieldelement(GudFoodOrderNo; GudFoodOrderLine."GudFood Order No.")
                     {
                     }

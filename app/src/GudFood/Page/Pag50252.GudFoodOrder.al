@@ -72,6 +72,7 @@ page 50252 "GudFood Order"
                 PromotedIsBig = true;
                 ShortCutKey = 'F9';
                 ToolTip = 'Post the document';
+                PromotedOnly = true;
 
                 trigger OnAction()
                 var
@@ -117,14 +118,10 @@ page 50252 "GudFood Order"
                 trigger OnAction()
                 var
                     GudFoodOrderHeader: Record "GudFood Order Header";
-                    GudFoodOrderLine: Record "GudFood Order Line";
                     GudFoodXMLExportSelect: XmlPort "GudFood XML Export Select";
                 begin
                     GudFoodOrderHeader.SetRange("No.", Rec."No.");
                     GudFoodXMLExportSelect.SetTableView(GudFoodOrderHeader);
-
-                    GudFoodOrderLine.SetRange("GudFood Order No.", Rec."No.");
-                    GudFoodXMLExportSelect.SetTableView(GudFoodOrderLine);
 
                     GudFoodXMLExportSelect.Run();
                 end;

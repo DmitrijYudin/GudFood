@@ -85,5 +85,9 @@ table 50255 "GudFood Order Line Posted"
         {
             Clustered = true;
         }
+        key(key2; "GudFood Order No.","Item No.")
+        {
+            SumIndexFields = Quantity;
+        }
     }
 }

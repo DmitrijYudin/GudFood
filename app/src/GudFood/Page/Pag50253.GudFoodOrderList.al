@@ -70,38 +70,6 @@ page 50253 "GudFood Order List"
                     Xmlport.Run(50251, false, false, GudFoodOrderHeader);
                 end;
             }
-            action("GudFood XMLPort Export 2")
-            {
-                Caption = 'Export Orders XML 2';
-                ApplicationArea = All;
-                Image = Export;
-                ToolTip = 'Executes GudFood Export Order';
-
-                trigger OnAction()
-                var
-                    GudFoodOrderHeader: Record "GudFood Order Header";
-                    GudFoodOrderLine: Record "GudFood Order Line";
-                    GudFoodXMLExportSelect: XmlPort "GudFood XML Export Select";
-                    MessageTxt: Label '%1 records were exported by XmlPort', Comment = '%1=count';
-                    RecordsSelected: Integer;
-                begin
-                    CurrPage.SetSelectionFilter(GudFoodOrderHeader);
-
-                    if GudFoodOrderHeader.FindSet() then begin
-                        RecordsSelected := GudFoodOrderHeader.Count();
-                        repeat
-                            GudFoodOrderHeader.SetRange("No.", Rec."No.");
-                            GudFoodXMLExportSelect.SetTableView(GudFoodOrderHeader);
-
-                            GudFoodOrderLine.SetRange("GudFood Order No.", Rec."No.");
-                            GudFoodXMLExportSelect.SetTableView(GudFoodOrderLine);
-
-                            GudFoodXMLExportSelect.Run();
-                        until GudFoodOrderHeader.Next() = 0;
-                        Message(MessageTxt, RecordsSelected);
-                    end;
-                end;
-            }
         }
     }
 }
