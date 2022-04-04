@@ -1,20 +1,20 @@
-report 50250 "GudFood Order Report"
+report 50251 "GudFood Order Report V2"
 {
     ApplicationArea = All;
-    Caption = 'GudFood Order Report';
+    Caption = 'GudFood Order Report V2"';
     UsageCategory = ReportsAndAnalysis;
 
     WordLayout = 'src\Layout\GudFoodReportPrint.docx';
     //RDLCLayout = 'src\Layout\GudFoodReport.rdlc';
     DefaultLayout = Word;
     PreviewMode = PrintLayout;
-    //WordMergeDataItem = "GudFood Order Header";
+    WordMergeDataItem = "GudFood Order Header";
 
     dataset
     {
         dataitem("GudFood Order Header"; "GudFood Order Header")
         {
-            // DataItemTableView = SORTING("No.");
+            DataItemTableView = SORTING("No.");
             RequestFilterFields = "No.";
             RequestFilterHeading = '"GudFood Order Header';
             //PrintOnlyIfDetail = true;
@@ -48,7 +48,6 @@ report 50250 "GudFood Order Report"
                 DataItemLinkReference = "GudFood Order Header";
                 DataItemTableView = SORTING("GudFood Order No.", "Line No.");
                 UseTemporary = true;
-                RequestFilterFields = "GudFood Order No.";
 
                 column(LineNo_GudFoodOrderLine; "Line No.")
                 {

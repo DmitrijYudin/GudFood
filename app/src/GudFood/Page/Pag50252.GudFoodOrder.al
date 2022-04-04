@@ -110,7 +110,6 @@ page 50252 "GudFood Order"
                     GudFoodOrderReport.Run();
                 end;
             }
-
             action("GudFood Order XML Export")
             {
                 Caption = 'GudFood Order XML Export';
