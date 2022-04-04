@@ -73,7 +73,6 @@ page 50252 "GudFood Order"
                 PromotedIsBig = true;
                 ShortCutKey = 'F9';
                 ToolTip = 'Post the document';
-                // PromotedOnly = true;
 
                 trigger OnAction()
                 var
@@ -93,47 +92,18 @@ page 50252 "GudFood Order"
                 PromotedIsBig = true;
                 ShortCutKey = 'Ctrl+P';
                 ToolTip = 'Print';
-                // PromotedOnly = true;
 
                 trigger OnAction()
                 var
                     GudFoodOrderHeader: Record "GudFood Order Header";
-                    GudFoodOrderLine: Record "GudFood Order Line";
                     GudFoodOrderReport: Report "GudFood Order Report";
                 begin
                     GudFoodOrderHeader.SetRange("No.", Rec."No.");
                     GudFoodOrderReport.SetTableView(GudFoodOrderHeader);
 
-                    // GudFoodOrderLine.SetRange("GudFood Order No.", Rec."No.");
-                    // GudFoodOrderReport.SetTableView(GudFoodOrderLine);
-
                     GudFoodOrderReport.Run();
                 end;
             }
-            // action(Print2)
-            // {
-            //     ApplicationArea = Basic, Suite;
-            //     Caption = 'P&rint 2';
-            //     Ellipsis = true;
-            //     Image = Print;
-            //     Promoted = true;
-            //     PromotedCategory = Category11;
-            //     PromotedIsBig = true;
-            //     ShortCutKey = 'Ctrl+P';
-            //     ToolTip = 'Print';
-            //     // PromotedOnly = true;
-
-            //     trigger OnAction()
-            //     var
-            //         GudFoodOrderHeader: Record "GudFood Order Header";
-            //         GudFoodOrderReport: Report "GudFood Order Report V2";
-            //     begin
-            //         GudFoodOrderHeader.SetRange("No.", Rec."No.");
-            //         GudFoodOrderReport.SetTableView(GudFoodOrderHeader);
-
-            //         GudFoodOrderReport.Run();
-            //     end;
-            // }
             action("GudFood Order XML Export")
             {
                 Caption = 'GudFood Order XML Export';
@@ -142,10 +112,8 @@ page 50252 "GudFood Order"
                 Promoted = true;
                 PromotedCategory = Category7;
                 PromotedIsBig = true;
-                //PromotedOnly = true;
                 Image = Export;
                 ToolTip = 'GudFood Order XML Export';
-
 
                 trigger OnAction()
                 var

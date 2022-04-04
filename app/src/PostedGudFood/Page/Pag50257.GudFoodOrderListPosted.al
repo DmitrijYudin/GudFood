@@ -52,36 +52,4 @@ page 50257 "GudFood Order List Posted"
             }
         }
     }
-    actions
-    {
-        area(Processing)
-        {
-            action("Delete All Data")
-            {
-                // It is for debugging and clearing Posted documents 
-                ApplicationArea = Basic, Suite;
-                Caption = 'D&elete All documents and lines';
-                Ellipsis = true;
-                Image = Delete;
-                Promoted = true;
-                PromotedIsBig = true;
-                ToolTip = 'Delete All documents and lines';
-                PromotedOnly = true;
-
-                trigger OnAction()
-                var
-                    GudFoodOrderHeaderPosted: Record "GudFood Order Header Posted";
-                    GudFoodOrderLinePosted: Record "GudFood Order Line Posted";
-                begin
-                    GudFoodOrderHeaderPosted.SetRange("No.");
-                    if not GudFoodOrderHeaderPosted.IsEmpty then
-                        GudFoodOrderHeaderPosted.DeleteAll();
-
-                    GudFoodOrderLinePosted.SetRange("GudFood Order No.");
-                    if not GudFoodOrderLinePosted.IsEmpty then
-                        GudFoodOrderLinePosted.DeleteAll();
-                end;
-            }
-        }
-    }
 }

@@ -54,7 +54,6 @@ table 50254 "GudFood Order Header Posted"
             Editable = false;
             DataClassification = CustomerContent;
         }
-
     }
     keys
     {

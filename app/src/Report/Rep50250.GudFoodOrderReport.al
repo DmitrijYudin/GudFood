@@ -17,7 +17,6 @@ report 50250 "GudFood Order Report"
             DataItemTableView = SORTING("No.");
             RequestFilterFields = "No.";
             RequestFilterHeading = '"GudFood Order Header';
-            //PrintOnlyIfDetail = true;
             column(DateCreated_GudFoodOrderHeader; "Date Created")
             {
                 IncludeCaption = true;
@@ -53,8 +52,6 @@ report 50250 "GudFood Order Report"
                 DataItemLink = "GudFood Order No." = FIELD("No.");
                 DataItemLinkReference = Header;
                 DataItemTableView = SORTING("GudFood Order No.", "Line No.");
-                //UseTemporary = true;
-
                 column(LineNo_GudFoodOrderLine; "Line No.")
                 {
                     IncludeCaption = true;
@@ -101,7 +98,6 @@ report 50250 "GudFood Order Report"
                 }
             }
         }
-
     }
 
     trigger OnPreReport()
