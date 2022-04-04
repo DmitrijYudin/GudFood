@@ -104,12 +104,36 @@ page 50252 "GudFood Order"
                     GudFoodOrderHeader.SetRange("No.", Rec."No.");
                     GudFoodOrderReport.SetTableView(GudFoodOrderHeader);
 
-                    GudFoodOrderLine.SetRange("GudFood Order No.", Rec."No.");
-                    GudFoodOrderReport.SetTableView(GudFoodOrderLine);
+                    // GudFoodOrderLine.SetRange("GudFood Order No.", Rec."No.");
+                    // GudFoodOrderReport.SetTableView(GudFoodOrderLine);
 
                     GudFoodOrderReport.Run();
                 end;
             }
+            // action(Print2)
+            // {
+            //     ApplicationArea = Basic, Suite;
+            //     Caption = 'P&rint 2';
+            //     Ellipsis = true;
+            //     Image = Print;
+            //     Promoted = true;
+            //     PromotedCategory = Category11;
+            //     PromotedIsBig = true;
+            //     ShortCutKey = 'Ctrl+P';
+            //     ToolTip = 'Print';
+            //     // PromotedOnly = true;
+
+            //     trigger OnAction()
+            //     var
+            //         GudFoodOrderHeader: Record "GudFood Order Header";
+            //         GudFoodOrderReport: Report "GudFood Order Report V2";
+            //     begin
+            //         GudFoodOrderHeader.SetRange("No.", Rec."No.");
+            //         GudFoodOrderReport.SetTableView(GudFoodOrderHeader);
+
+            //         GudFoodOrderReport.Run();
+            //     end;
+            // }
             action("GudFood Order XML Export")
             {
                 Caption = 'GudFood Order XML Export';

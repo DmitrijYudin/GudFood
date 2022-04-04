@@ -8,16 +8,16 @@ report 50250 "GudFood Order Report"
     //RDLCLayout = 'src\Layout\GudFoodReport.rdlc';
     DefaultLayout = Word;
     PreviewMode = PrintLayout;
-    //WordMergeDataItem = "GudFood Order Header";
+    WordMergeDataItem = Header;
 
     dataset
     {
-        dataitem("GudFood Order Header"; "GudFood Order Header")
+        dataitem(Header; "GudFood Order Header")
         {
-            // DataItemTableView = SORTING("No.");
+            DataItemTableView = SORTING("No.");
             RequestFilterFields = "No.";
-            // RequestFilterHeading = 'GudFood Order';
-            // UseTemporary = true;
+            RequestFilterHeading = '"GudFood Order Header';
+            //PrintOnlyIfDetail = true;
             column(DateCreated_GudFoodOrderHeader; "Date Created")
             {
                 IncludeCaption = true;
@@ -42,83 +42,73 @@ report 50250 "GudFood Order Report"
             {
                 IncludeCaption = true;
             }
+            column(PrintDateTime; PrintDateTime)
+            {
+            }
+            column(UserID; UserID)
+            {
+            }
+            dataitem(GudFoodOrderLine; "GudFood Order Line")
+            {
+                DataItemLink = "GudFood Order No." = FIELD("No.");
+                DataItemLinkReference = Header;
+                DataItemTableView = SORTING("GudFood Order No.", "Line No.");
+                //UseTemporary = true;
 
+                column(LineNo_GudFoodOrderLine; "Line No.")
+                {
+                    IncludeCaption = true;
+                }
+                column(DateCreated_GudFoodOrderLine; "Date Created")
+                {
+                    IncludeCaption = true;
+                }
+                column(ItemNo_GudFoodOrderLine; "Item No.")
+                {
+                    IncludeCaption = true;
+                }
+                column(ItemType_GudFoodOrderLine; "Item Type")
+                {
+                    IncludeCaption = true;
+                }
+                column(Description_GudFoodOrderLine; Description)
+                {
+                    IncludeCaption = true;
+                }
+                column(Quantity_GudFoodOrderLine; Quantity)
+                {
+                    IncludeCaption = true;
+                }
+                column(Amount_GudFoodOrderLine; Amount)
+                {
+                    IncludeCaption = true;
+                }
+                column(SelltoCustomerNo_GudFoodOrderLine; "Sell- to Customer No.")
+                {
+                    IncludeCaption = true;
+                }
+                column(GudFood_Order_No_; "GudFood Order No.")
+                {
+                    IncludeCaption = true;
+                }
+                column(ShelfLife_GudFoodOrderLine; "Shelf Life")
+                {
+                    IncludeCaption = true;
+                }
+                column(UnitPrice_GudFoodOrderLine; "Unit Price")
+                {
+                    IncludeCaption = true;
+                }
+            }
         }
-        dataitem(GudFoodOrderLine; "GudFood Order Line")
-        {
-            // DataItemLink = "GudFood Order No." = FIELD("No.");
-            // DataItemLinkReference = "GudFood Order Header";
-            // DataItemTableView = SORTING("GudFood Order No.");
-            // UseTemporary = true;
-            RequestFilterFields = "GudFood Order No.";
 
-            column(LineNo_GudFoodOrderLine; "Line No.")
-            {
-                IncludeCaption = true;
-            }
-            column(DateCreated_GudFoodOrderLine; "Date Created")
-            {
-                IncludeCaption = true;
-            }
-            column(ItemNo_GudFoodOrderLine; "Item No.")
-            {
-                IncludeCaption = true;
-            }
-            column(ItemType_GudFoodOrderLine; "Item Type")
-            {
-                IncludeCaption = true;
-            }
-            column(Description_GudFoodOrderLine; Description)
-            {
-                IncludeCaption = true;
-            }
-            column(Quantity_GudFoodOrderLine; Quantity)
-            {
-                IncludeCaption = true;
-            }
-            column(Amount_GudFoodOrderLine; Amount)
-            {
-                IncludeCaption = true;
-            }
-            column(SelltoCustomerNo_GudFoodOrderLine; "Sell- to Customer No.")
-            {
-                IncludeCaption = true;
-            }
-            column(GudFood_Order_No_; "GudFood Order No.")
-            {
-                IncludeCaption = true;
-            }
-            column(ShelfLife_GudFoodOrderLine; "Shelf Life")
-            {
-                IncludeCaption = true;
-            }
-            column(UnitPrice_GudFoodOrderLine; "Unit Price")
-            {
-                IncludeCaption = true;
-            }
-        }
-        dataitem(User; User)
-        {
-            column(FullName_User; "Full Name")
-            {
-                IncludeCaption = true;
-            }
-            column(UserName_User; "User Name")
-            {
-                IncludeCaption = true;
-            }
-            column(UserSecurityID_User; "User Security ID")
-            {
-                IncludeCaption = true;
-            }
-        }
-        dataitem("User Setup"; "User Setup")
-        {
-
-            column(UserID_UserSetup; "User ID")
-            {
-                IncludeCaption = true;
-            }
-        }
     }
+
+    trigger OnPreReport()
+    begin
+        PrintDateTime := CurrentDateTime;
+    end;
+
+    var
+        PrintDateTime: DateTime;
 }
