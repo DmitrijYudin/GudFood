@@ -61,13 +61,14 @@ page 50253 "GudFood Order List"
                 trigger OnAction()
                 var
                     GudFoodOrderHeader: Record "GudFood Order Header";
-                    GudFoodXMLExportSelect: XmlPort "GudFood XML Export Select";
+                // GudFoodXMLExportSelect: XmlPort "GudFood XML Export Select";
 
                 begin
                     CurrPage.SetSelectionFilter(GudFoodOrderHeader);
-                    GudFoodXMLExportSelect.SetTableView(GudFoodOrderHeader);
+                    // GudFoodXMLExportSelect.SetTableView(GudFoodOrderHeader);
 
                     Xmlport.Run(50251, false, false, GudFoodOrderHeader);
+                    // GudFoodXMLExportSelect.Run();
                 end;
             }
         }

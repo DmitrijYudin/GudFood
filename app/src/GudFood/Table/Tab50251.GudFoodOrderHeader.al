@@ -31,13 +31,27 @@ table 50251 "GudFood Order Header"
             trigger OnValidate()
             var
                 Customer: Record Customer;
+                GudFoodOrderLine: Record "GudFood Order Line";
             begin
                 if "Sell- to Customer No." <> '' then begin
                     Customer.Get("Sell- to Customer No.");
                     Rec.Validate("Sell-to Customer Name", Customer.Name);
                     Rec.Validate("Date Created", WorkDate());
+
+                    // GudFoodOrderLine.SetRange("GudFood Order No.", Rec."No.");
+                    // if GudFoodOrderLine.FindSet(true, false) then
+                    //     repeat
+                    //         GudFoodOrderLine."Sell- to Customer No." := Customer."No.";
+                    //         GudFoodOrderLine.Modify()
+                    //     until GudFoodOrderLine.Next() = 0
+
+                    GudFoodOrderLine.SetRange("GudFood Order No.", Rec."No.");
+                    if not GudFoodOrderLine.IsEmpty then
+                        GudFoodOrderLine.ModifyAll("Sell- to Customer No.", Customer."No.");
+
                 end;
             end;
+
         }
         field(30; "Sell-to Customer Name"; Text[100])
         {
@@ -92,6 +106,7 @@ table 50251 "GudFood Order Header"
     begin
         InitInsert();
     end;
+
     local procedure InitInsert()
     var
         GudFoodOrderSetup: Record "GudFood Order Setup";
@@ -103,6 +118,7 @@ table 50251 "GudFood Order Header"
         TestNoSeries(GudFoodOrderSetup);
         NoSeriesManagement.InitSeries(GudFoodOrderSetup."GudFood Nos.", xRec."No. Series", 0D, "No.", "No. Series");
     end;
+
     local procedure TestNoSeries(var GudFoodOrderSetup: Record "GudFood Order Setup")
     begin
         if not GudFoodOrderSetup.get() then begin

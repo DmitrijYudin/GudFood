@@ -10,16 +10,6 @@ table 50252 "GudFood Order Line"
             DataClassification = CustomerContent;
             TableRelation = "GudFood Order Header"."No.";
             Editable = false;
-
-            trigger OnValidate()
-            var
-                GudFoodOrderHeader: Record "GudFood Order Header";
-            begin
-                if "GudFood Order No." <> '' then begin
-                    GudFoodOrderHeader.Get(Rec."GudFood Order No.");
-                    Rec.Validate("Date Created", GudFoodOrderHeader."Date Created");
-                end;
-            end;
         }
         field(20; "Line No."; Integer)
         {
@@ -59,10 +49,13 @@ table 50252 "GudFood Order Line"
                     GudFoodItem.Get(Rec."Item No.");
                     GudFoodItem.TestField("Shelf Life");
 
+
+
                     if GudFoodItem."Shelf Life" < Today then
                         Error(ShelfLifeErr, GudFoodItem.Code, GudFoodItem."Shelf Life", Today);
 
                     Rec.Validate("Sell- to Customer No.", GudFoodOrderHeader."Sell- to Customer No.");
+                    Rec.Validate("Date Created", GudFoodOrderHeader."Date Created");
 
                     Rec.Validate("Item Type", GudFoodItem."GudFood Type");
                     Rec.Validate(Description, GudFoodItem.Description);

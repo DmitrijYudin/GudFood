@@ -43,30 +43,4 @@ page 50255 "GudFood Order Setup"
             }
         }
     }
-    actions
-    {
-        area(Processing)
-        {
-            action("Delete Nos.")
-            {
-                ApplicationArea = All;
-                Caption = 'Delete Nos.', comment = 'NLB="Delete Nos."';
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                Image = Delete;
-                ToolTip = 'Delete Nos';
-                PromotedOnly = true;
-
-                trigger OnAction()
-                var
-                    GudFoodOrderSetup: Record "GudFood Order Setup";
-                begin
-                    GudFoodOrderSetup.FindSet();
-                    if not GudFoodOrderSetup.IsEmpty then
-                        GudFoodOrderSetup.DeleteAll();
-                end;
-            }
-        }
-    }
 }

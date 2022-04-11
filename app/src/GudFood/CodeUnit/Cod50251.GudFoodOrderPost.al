@@ -34,7 +34,7 @@ codeunit 50251 "GudFood Order Post"
                 GudFoodOrderLinePosted.Insert(true);
             until GudFoodOrderLine.Next() = 0;
 
-        GudFoodOrderHeader.Delete(true);
+        GudFoodOrderHeader.Delete();
         GudFoodOrderLine.DeleteAll(true);
 
         Message(OrderPostedMsg, GudFoodOrderHeaderPosted."No.", GudFoodOrderHeaderPosted.TableCaption());
